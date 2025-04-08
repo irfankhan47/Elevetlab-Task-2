@@ -49,6 +49,7 @@ This project demonstrates a complete CI/CD pipeline for a Node.js application us
 
 - curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 - sudo apt install -y nodejs
+- 
 ![7](https://github.com/user-attachments/assets/04c5f062-3d5f-4f34-8b6d-e4b1cd1fd3bf)
 
 # 5. Install Jenkins
@@ -71,6 +72,7 @@ Open Jenkins at http://<your-ec2-public-ip>:8080
 Install recommended plugins
 - Create a new pipeline job named NodeJS-CICD
 - Configure GitHub credentials (Manage Jenkins > Credentials)
+- 
 ![docker cred](https://github.com/user-attachments/assets/e6d52ed4-d637-48e7-9bd9-d87255af71ff)
 
 In the pipeline script section, use the following:
@@ -137,13 +139,17 @@ After saving the job, click "Build Now"
 After the pipeline runs successfully,
 Your Node.js app will be live inside a Docker container on your EC2 instance.
 
+# To verify
 Run = sudo docker images 
+
 ![docker imagges](https://github.com/user-attachments/assets/348320e5-74d3-4e67-a92b-4011c7a7753d)
 
 Run = sudo docker ps
+
 ![docker ps](https://github.com/user-attachments/assets/a5a2045a-18ec-42f2-933d-bdc3e28fa6ac)
 
 Check Your HubDocker
+
 ![hubdocker](https://github.com/user-attachments/assets/2eaa1637-246c-4227-af2e-a289012ee42d)
 
 ## 🌐 Check Your App
