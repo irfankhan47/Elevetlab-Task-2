@@ -1,0 +1,14 @@
+{
+  "name": "nodejs-ci-cd-app",
+  "version": "1.0.0",
+  "description": "A Node.js app with Jenkins CI/CD pipeline",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Irfan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
