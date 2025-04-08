@@ -9,10 +9,10 @@ This project demonstrates a complete CI/CD pipeline for a Node.js application us
 
 - ├── app.js
 - ├── Dockerfile
-├── package.json 
-├── routes/ 
-│ └── api.js 
-└── Jenkinsfile
+- ├── package.json 
+- ├── routes/ 
+- │ └── api.js 
+- └── Jenkinsfile
 
 ---
 
