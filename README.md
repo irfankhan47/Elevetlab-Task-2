@@ -7,12 +7,12 @@ This project demonstrates a complete CI/CD pipeline for a Node.js application us
 
 ## 📁 Project Structure
 
-. ├── app.js
-. ├── Dockerfile
-. ├── package.json 
-. ├── routes/ 
-. │ └── api.js 
-. └── Jenkinsfile
+├── app.js
+├── Dockerfile
+├── package.json 
+├── routes/ 
+│ └── api.js 
+└── Jenkinsfile
 
 ---
 
