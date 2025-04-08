@@ -23,25 +23,27 @@ This project demonstrates a complete CI/CD pipeline for a Node.js application us
 ---
 
 ## ⚙️ EC2 Instance Setup
+
 ![1](https://github.com/user-attachments/assets/4d68ac48-98ac-48cf-8546-f29584fa5ea2)
 
 # 1. Update system packages
-sudo apt update && sudo apt upgrade -y
+- sudo apt update && sudo apt upgrade -y
 
 # 2. Install Git
-sudo apt install git -y
+- sudo apt install git -y
 
 # 3. Install Docker
-sudo apt install docker.io -y
-sudo systemctl start docker
-sudo systemctl enable docker
-sudo usermod -aG docker $USER
+- sudo apt install docker.io -y
+- sudo systemctl start docker
+- sudo systemctl enable docker
+- sudo usermod -aG docker $USER
+  
 ![5](https://github.com/user-attachments/assets/175457e3-7a56-4af7-a1e8-2ce0567acc05)
 
 # 4. Install Node.js and npm
 
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-sudo apt install -y nodejs
+- curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+- sudo apt install -y nodejs
 ![7](https://github.com/user-attachments/assets/04c5f062-3d5f-4f34-8b6d-e4b1cd1fd3bf)
 
 # 5. Install Jenkins
