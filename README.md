@@ -23,6 +23,7 @@ This project demonstrates a complete CI/CD pipeline for a Node.js application us
 ---
 
 ## ⚙️ EC2 Instance Setup
+![1](https://github.com/user-attachments/assets/4d68ac48-98ac-48cf-8546-f29584fa5ea2)
 
 # 1. Update system packages
 sudo apt update && sudo apt upgrade -y
@@ -41,7 +42,7 @@ sudo usermod -aG docker $USER
 
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt install -y nodejs
-(https://github.com/user-attachments/assets/bc41adeb-f9db-476c-b77e-fb09ae86acc1)
+![7](https://github.com/user-attachments/assets/04c5f062-3d5f-4f34-8b6d-e4b1cd1fd3bf)
 
 # 5. Install Jenkins
 wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
@@ -51,81 +52,24 @@ sudo apt update
 sudo apt install jenkins -y
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
+
 📦 Node.js Project Setup
 app.js
-javascript
-Copy
-Edit
-const express = require('express');
-const app = express();
-const port = 3000;
-
-const apiRoutes = require('./routes/api');
-
-app.use('/api', apiRoutes);
-
-app.listen(port, () => {
-    console.log(`App listening on port ${port}`);
-});
-routes/api.js
-javascript
-Copy
-Edit
-const express = require('express');
-const router = express.Router();
-
-router.get('/', (req, res) => {
-    res.send('Hello from Jenkins CI/CD!');
-});
-
-module.exports = router;
 package.json
-json
-Copy
-Edit
-{
-  "name": "nodejs-app",
-  "version": "1.0.0",
-  "main": "app.js",
-  "scripts": {
-    "start": "node app.js"
-  },
-  "dependencies": {
-    "express": "^4.18.2"
-  }
-}
 🐳 Docker Setup
-Dockerfile
-Dockerfile
-Copy
-Edit
-FROM node:18
 
-WORKDIR /app
-
-COPY package*.json ./
-RUN npm install
-
-COPY . .
-
-EXPOSE 3000
-
-CMD ["npm", "start"]
 🔧 Jenkins Setup
 Open Jenkins at http://<your-ec2-public-ip>:8080
 
 Install recommended plugins
-
 Create a new pipeline job named NodeJS-CICD
-
 Configure GitHub credentials (Manage Jenkins > Credentials)
+![docker cred](https://github.com/user-attachments/assets/e6d52ed4-d637-48e7-9bd9-d87255af71ff)
 
 In the pipeline script section, use the following:
 
 Jenkinsfile
-groovy
-Copy
-Edit
+
 pipeline {
     agent any
 
@@ -177,23 +121,31 @@ pipeline {
         }
     }
 }
+
 🚀 Run Jenkins Pipeline
 After saving the job, click "Build Now"
 
-On successful build, your app will be:
+After the pipeline runs successfully,
+![pipeline](https://github.com/user-attachments/assets/1abf0844-6ac1-4cc8-a7ce-b64c8bc86d9d)
 
-Built from GitHub
+Your Node.js app will be live inside a Docker container on your EC2 instance.
 
-Dockerized and pushed to DockerHub
+Run = sudo docker images 
+![docker imagges](https://github.com/user-attachments/assets/348320e5-74d3-4e67-a92b-4011c7a7753d)
 
-Deployed on your EC2 instance
+Run = sudo docker ps
+![docker ps](https://github.com/user-attachments/assets/a5a2045a-18ec-42f2-933d-bdc3e28fa6ac)
 
-🌐 Check Your App
-Visit: http://<your-ec2-ip>:3000/api
+Check Your HubDocker
+![hubdocker](https://github.com/user-attachments/assets/2eaa1637-246c-4227-af2e-a289012ee42d)
 
-You should see:
+## 🌐 Check Your App
 
-csharp
-Copy
-Edit
-Hello from Jenkins CI/CD!
+You can test the application using the following URLs:
+
+- Visit Home Route: [http://<your-ec2-ip>:3000/](http://<your-ec2-ip>:3000/)
+![last](https://github.com/user-attachments/assets/276fc5d0-a456-4166-9a63-38d0a323aff0)
+
+- Try API Endpoint: [http://<your-ec2-ip>:3000/api/hello](http://<your-ec2-ip>:3000/api/hello)
+![apihello](https://github.com/user-attachments/assets/1ee07995-4482-4538-b160-bc2fe57161a9)
+
