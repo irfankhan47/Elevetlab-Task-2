@@ -2,34 +2,22 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-app.use(express.json());
-
-let users = [
-  { id: 1, name: 'Irfan' },
-  { id: 2, name: 'Ayesha' },
-];
-
-// Get all users
-app.get('/api/users', (req, res) => {
-  res.json(users);
+// Middleware (logging)
+app.use((req, res, next) => {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+  next();
 });
 
-// Add a new user
-app.post('/api/users', (req, res) => {
-  const { name } = req.body;
-  const newUser = {
-    id: users.length + 1,
-    name,
-  };
-  users.push(newUser);
-  res.status(201).json(newUser);
-});
+// Routes
+const apiRoutes = require('./routes/api');
+app.use('/api', apiRoutes);
 
-// Home route
+// Default route
 app.get('/', (req, res) => {
-  res.send('User Management API - CI/CD by Jenkins');
+  res.send('🚀 Welcome to Irfan’s Node.js App deployed via Jenkins!');
 });
 
+// Start server
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+  console.log(`✅ Server is running at http://localhost:${port}`);
 });
