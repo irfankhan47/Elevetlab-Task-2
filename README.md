@@ -165,6 +165,5 @@ You can test the application using the following URLs:
 
 👨‍💻 Author
 Irfan Khan
-🚀 DevOps & Cloud Enthusiast
-🔗 GitHub
-
+DevOps & Cloud Enthusiast
+GitHub: @irfankhan47
