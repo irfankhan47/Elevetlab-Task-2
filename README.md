@@ -47,25 +47,25 @@ This project demonstrates a complete CI/CD pipeline for a Node.js application us
 ![7](https://github.com/user-attachments/assets/04c5f062-3d5f-4f34-8b6d-e4b1cd1fd3bf)
 
 # 5. Install Jenkins
-wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
-sudo sh -c 'echo deb http://pkg.jenkins.io/debian binary/ > \
+- wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+- sudo sh -c 'echo deb http://pkg.jenkins.io/debian binary/ > \
     /etc/apt/sources.list.d/jenkins.list'
-sudo apt update
-sudo apt install jenkins -y
-sudo systemctl start jenkins
-sudo systemctl enable jenkins
+- sudo apt update
+- sudo apt install jenkins -y
+- sudo systemctl start jenkins
+- sudo systemctl enable jenkins
 
 📦 Node.js Project Setup
-app.js
-package.json
-🐳 Docker Setup
+- app.js
+- package.json
+- Dockerfile
 
 🔧 Jenkins Setup
 Open Jenkins at http://<your-ec2-public-ip>:8080
 
 Install recommended plugins
-Create a new pipeline job named NodeJS-CICD
-Configure GitHub credentials (Manage Jenkins > Credentials)
+- Create a new pipeline job named NodeJS-CICD
+- Configure GitHub credentials (Manage Jenkins > Credentials)
 ![docker cred](https://github.com/user-attachments/assets/e6d52ed4-d637-48e7-9bd9-d87255af71ff)
 
 In the pipeline script section, use the following:
@@ -127,9 +127,9 @@ pipeline {
 🚀 Run Jenkins Pipeline
 After saving the job, click "Build Now"
 
-After the pipeline runs successfully,
 ![pipeline](https://github.com/user-attachments/assets/1abf0844-6ac1-4cc8-a7ce-b64c8bc86d9d)
 
+After the pipeline runs successfully,
 Your Node.js app will be live inside a Docker container on your EC2 instance.
 
 Run = sudo docker images 
@@ -142,12 +142,13 @@ Check Your HubDocker
 ![hubdocker](https://github.com/user-attachments/assets/2eaa1637-246c-4227-af2e-a289012ee42d)
 
 ## 🌐 Check Your App
-
 You can test the application using the following URLs:
 
 - Visit Home Route: [http://<your-ec2-ip>:3000/](http://<your-ec2-ip>:3000/)
+
 ![last](https://github.com/user-attachments/assets/276fc5d0-a456-4166-9a63-38d0a323aff0)
 
 - Try API Endpoint: [http://<your-ec2-ip>:3000/api/hello](http://<your-ec2-ip>:3000/api/hello)
+
 ![apihello](https://github.com/user-attachments/assets/1ee07995-4482-4538-b160-bc2fe57161a9)
 
