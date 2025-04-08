@@ -1,7 +1,7 @@
 {
-  "name": "nodejs-ci-cd-app",
+  "name": "user-management-api",
   "version": "1.0.0",
-  "description": "A Node.js app with Jenkins CI/CD pipeline",
+  "description": "A basic User Management API with Node.js and Express",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
