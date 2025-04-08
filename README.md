@@ -35,7 +35,7 @@ sudo apt install docker.io -y
 sudo systemctl start docker
 sudo systemctl enable docker
 sudo usermod -aG docker $USER
-!(https://github.com/user-attachments/assets/7d30b383-bdf5-4a6e-b24d-56e3eb37c42c)
+![5](https://github.com/user-attachments/assets/175457e3-7a56-4af7-a1e8-2ce0567acc05)
 
 # 4. Install Node.js and npm
 
